@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block header %}Your Event Registrations{% endblock %}
+
+{% block content %}
+    <h2>Your Event Registrations</h2>
+    {% for registration in registrations %}
+        <div class="registration">
+            <p>Event: {{ registration.event.title }}</p>
+            <p>Date: {{ registration.event.date }}</p>
+            <p>Time: {{ registration.event.time }}</p>
+            <a href="{% url 'event_detail' registration.event.id %}">Event Details</a>
+        </div>
+    {% endfor %}
+{% endblock %}
